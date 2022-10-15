@@ -2,8 +2,20 @@
 require_once __DIR__.'/src/PHPTelebot.php';
 require_once __DIR__.'/src/xc.php';
 
-// edit this line with your token bot and username
-$bot = new PHPTelebot('Input your Token Bot', 'Bot Username');
+// Read token & username
+function readToken($input){
+    $TOKENr = file_get_contents("Xppai.WRT");
+    $raw = explode("\n",$TOKENr);
+    $TOKEN = $raw[0];
+    $USERNAME = $raw[1];
+    if ($input == "token") {
+        return $TOKEN;
+    }elseif($input == "username"){
+        return $USERNAME;
+    }
+}
+
+$bot = new PHPTelebot(readToken("token"), readToken("username"));
 
 // Ping Command
 $bot->cmd('/ping','yes');
