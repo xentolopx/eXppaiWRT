@@ -5,7 +5,7 @@
 
 * Simple, easy to use.
 * Support Long Polling and Webhook.
-* Speedtest
+* Speedtest (still buggy, please wait for update)
 * Proxy List
 * Rules List
 * MyXL
