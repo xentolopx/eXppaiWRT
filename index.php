@@ -6,7 +6,7 @@ require_once __DIR__.'/src/xc.php';
 $bot = new PHPTelebot('Input your Token Bot', 'Bot Username');
 
 // Ping Command
-$bot->cmd('xc','yes');
+$bot->cmd('/ping','yes');
 
 // OpenWRT Command 
 $bot->cmd('/proxies', function () {
