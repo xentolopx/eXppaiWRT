@@ -39,14 +39,9 @@ php8-cli index.php
 ## Usage
 
 
-### Edit This line of Code before running
-```php
-<?php
-require_once __DIR__.'/src/PHPTelebot.php';
-require_once __DIR__.'/src/xc.php';
-
-// edit this line with your token bot and username
-$bot = new PHPTelebot('Input your Token Bot', 'Bot Username');
+### Edit This File before running
+```
+Edit Xppai.WRT with your Bot Token & Bot Username
 ```
 Then run
 ```shell
