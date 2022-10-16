@@ -10,6 +10,7 @@
 * Rules List
 * My IP
 * Vnstat
+* Memory
 * MyXL
 * Inline Command
 
@@ -59,5 +60,6 @@ List Commands
 * /rules
 * /vnstat -d / -m / --h
 * /myip
+* /memory
 * /speedtest
 * /myxl 087666xxx
