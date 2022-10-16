@@ -26,6 +26,11 @@ $bot->cmd('/proxies', function () {
     return Bot::sendMessage("<code>".Proxies()."</code>",$options);
 });
 
+$bot->cmd('/vnstat', function ($input) {
+    $options = ['parse_mode' => 'html','reply' => true];
+    return Bot::sendMessage("<code>".shell_exec("vnstat $input")."</code>",$options);
+});
+
 $bot->cmd('/myip', function () {
     $options = ['parse_mode' => 'html','reply' => true];
     return Bot::sendMessage("<code>".myip()."</code>",$options);
