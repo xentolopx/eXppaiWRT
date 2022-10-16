@@ -9,6 +9,7 @@
 * Proxy List
 * Rules List
 * My IP
+* Vnstat
 * MyXL
 * Inline Command
 
@@ -56,6 +57,7 @@ List Commands
 * /ping
 * /proxies
 * /rules
+* /vnstat -d / -m / --h
 * /myip
 * /speedtest
 * /myxl 087666xxx
