@@ -97,6 +97,20 @@ $final = "Type | Payload | Proxy\n";
 return $final;
 }
 
+function myip(){
+    $data = json_decode(seeURL("http://ip-api.com/json/"),true);
+    $country = $data['country'];
+    $countryCode = $data['countryCode'];
+    $region = $data['regionName'];
+    $city = $data['city'];
+    $isp = $data['isp'];
+    $timezone = $data['timezone'];
+    $as = $data['as'];
+    $ip = $data['query'];
+    $result = "ISP : $isp\n↳ Address : $as \n↳ IP : $ip \n↳ Region | City : $region | $city \n↳ Timezone : $timezone \n↳ Country : $country | $countryCode \n↳ XppaiWRT";
+    return $result;
+}
+
 function Speedtest(){
 
 $result = shell_exec('speedtest > result && cat result');
