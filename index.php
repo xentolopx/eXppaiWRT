@@ -31,6 +31,11 @@ $bot->cmd('/vnstat', function ($input) {
     return Bot::sendMessage("<code>".shell_exec("vnstat $input")."</code>",$options);
 });
 
+$bot->cmd('/memory', function () {
+    $options = ['parse_mode' => 'html','reply' => true];
+    return Bot::sendMessage("<code>".shell_exec("cat /proc/meminfo | sed -n '1,5p'")."</code>",$options);
+});
+
 $bot->cmd('/myip', function () {
     $options = ['parse_mode' => 'html','reply' => true];
     return Bot::sendMessage("<code>".myip()."</code>",$options);
