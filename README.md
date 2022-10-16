@@ -8,6 +8,7 @@
 * Speedtest (still buggy, please wait for update)
 * Proxy List
 * Rules List
+* My IP
 * MyXL
 * Inline Command
 
@@ -55,5 +56,6 @@ List Commands
 * /ping
 * /proxies
 * /rules
+* /myip
 * /speedtest
 * /myxl 087666xxx
