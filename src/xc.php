@@ -8,6 +8,18 @@ function seeURL($url){
         return $output;
 }
 
+function delayColor($input){
+    if ($input == 0) {
+        return "⬛️";
+    }elseif ($input < 100) {
+        return "🟩";
+    }elseif ($input > 101) {
+        return "🟧";
+    }elseif ($input < 201) {
+        return "🟥";
+    }
+}
+
 function MyXL($number){
     $data = seeURL("http://beta-test.cloudaccess.host/cek.php?nomor=$number");
     return $data;
@@ -44,13 +56,14 @@ curl_close($ch);
 $data = json_decode($result,true);
 
 $data = $data['providers']['default']['proxies'];
-$final = "Type | Name | Ping\n";
+$final = "🔳 Type | Name | Delay\n";
 
     foreach ($data as $key => $value) {
         $name = $value['name'];
         $delay = $value['history'][-0]['delay'];
         $type = $value['type'];
-        $final .= "$type | $name | $delay ms \n";
+        $color = delayColor($delay);
+        $final .= "$color $type | $name | $delay ms \n";
     }
 return $final;
 }
