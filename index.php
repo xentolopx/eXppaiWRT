@@ -20,6 +20,10 @@ $bot = new PHPTelebot(readToken("token"), readToken("username"));
 // Ping Command
 $bot->cmd('/ping','yes');
 
+// start cmd & cmd list
+$bot->cmd('/start',"Welcome to XppaiWRT\n/cmdlist to see all comand");
+$bot->cmd('/cmdlist',"/proxies | Proxies status \n/rules | Rule list \n/vnstat | Bandwidth usage \n/memory | Memory status \n/myip | Get ip details \n/myxl 087xxx | MyXL Package Remaining \n/Speedtest | Speedtest (still buggy) \n/ping | Ping bot");
+
 // OpenWRT Command 
 $bot->cmd('/proxies', function () {
     $options = ['parse_mode' => 'html','reply' => true];
