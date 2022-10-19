@@ -40,6 +40,11 @@ $bot->cmd('/memory', function () {
     return Bot::sendMessage("<code>".shell_exec("cat /proc/meminfo | sed -n '1,5p'")."</code>",$options);
 });
 
+$bot->cmd('/sysinfo', function () {
+    $options = ['parse_mode' => 'html','reply' => true];
+    return Bot::sendMessage("<code>".shell_exec("src/plugins/sysinfo.sh -bw")."</code>",$options);
+});
+
 $bot->cmd('/myip', function () {
     $options = ['parse_mode' => 'html','reply' => true];
     return Bot::sendMessage("<code>".myip()."</code>",$options);
