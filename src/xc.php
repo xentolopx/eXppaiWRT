@@ -11,11 +11,13 @@ function seeURL($url){
 function delayColor($input){
     if ($input == 0) {
         return "⬛️";
-    }elseif ($input < 100) {
+    }elseif ($input >= 1 && $input <= 150) {
         return "🟩";
-    }elseif ($input > 101) {
+    }elseif ($input >= 151 && $input <= 300) {
+        return "🟨";
+    }elseif ($input >= 300 && $input <= 350) {
         return "🟧";
-    }elseif ($input < 201) {
+    }elseif ($input > 350) {
         return "🟥";
     }
 }
@@ -56,7 +58,7 @@ curl_close($ch);
 $data = json_decode($result,true);
 
 $data = $data['providers']['default']['proxies'];
-$final = "🔳 Type | Name | Delay\n";
+$final = "⏱ Type | Name | Delay\n";
 
     foreach ($data as $key => $value) {
         $name = $value['name'];
@@ -65,7 +67,7 @@ $final = "🔳 Type | Name | Delay\n";
         $color = delayColor($delay);
         $final .= "$color $type | $name | $delay ms \n";
     }
-return $final;
+return $final."Alpha Ver - XppaiWRT";
 }
 
 function Rules(){
