@@ -87,6 +87,14 @@ $bot->on('inline', function ($cmd,$input) {
         'parse_mode' => 'html',
         'message_text' => "<code>".Rules()."</code>",
         ];
+    }elseif($cmd == 'myxl'){
+        $results[] = [
+        'type' => 'article',
+        'id' => 'unique_id1',
+        'title' => MyXL($input),
+        'parse_mode' => 'html',
+        'message_text' => "<code>".MyXL($input)."</code>",
+        ];
     }
     
     $options = [
