@@ -1,11 +1,14 @@
 # XppaiWRT
 - Telegram bot framework written in PHP for OpenWRT
-- Tested on [**Reyre Firmware OC OnLy 28.09.22**](https://www.youtube.com/watch?v=vtjw38V2ybA)    
+
+## Tested on
+* [**Reyre Firmware OC OnLy 28.09.22**](https://www.youtube.com/watch?v=vtjw38V2ybA)
+* [**Reyre Firmware OC OnLy 27.10.22**](https://www.youtube.com/watch?v=0KWgy6P2PVYA) -> Speedtest Fixed
 ## Features
 
 * Simple, easy to use.
 * Support Long Polling and Webhook.
-* Speedtest (still buggy, please wait for update)
+* Speedtest (Fixed on Firmware Reyre OC OnLy 27.10.22)
 * Proxy List
 * Rules List
 * My IP
