@@ -22,7 +22,7 @@ $bot->cmd('/ping','yes');
 
 // start cmd & cmd list
 $bot->cmd('/start',"Welcome to XppaiWRT\n/cmdlist to see all comand\nTelegram Support : Join https://t.me/+xIqib8emdvQzNzI1");
-$bot->cmd('/cmdlist',"/proxies | Proxies status \n/rules | Rule list \n/vnstat | Bandwidth usage \n/memory | Memory status \n/myip | Get ip details \n/myxl 087xxx | MyXL Package Remaining \n/Speedtest | Speedtest (still buggy) \n/ping | Ping bot");
+$bot->cmd('/cmdlist',"/proxies | Proxies status \n/rules | Rule list \n/vnstat | Bandwidth usage \n/memory | Memory status \n/myip | Get ip details \n/myxl 087xxx | MyXL Package Remaining \n/speedtest | Speedtest (still buggy) \n/ping | Ping bot\n/sysinfo | System Information");
 
 // OpenWRT Command 
 $bot->cmd('/proxies', function () {
