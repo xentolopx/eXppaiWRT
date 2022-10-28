@@ -13,6 +13,7 @@
 /**
  * Class PHPTelebot.
  */
+
 class PHPTelebot
 {
     /**
@@ -131,13 +132,13 @@ class PHPTelebot
     {
         try {
             if (php_sapi_name() == 'cli') {
-                echo 'PHPTelebot version '.self::$version;
+                echo 'XppaiWRT Running | Start bot on @'.$this->readUsername();
                 echo "\nMode\t: Long Polling\n";
                 $options = getopt('q', ['quiet']);
                 if (isset($options['q']) || isset($options['quiet'])) {
                     self::$debug = false;
                 }
-                echo "Debug\t: ".(self::$debug ? 'ON' : 'OFF')."\n";
+                echo "Debug\t: ".(self::$debug ? 'ON' : 'OFF')."\nAlways keep your XppaiWRT updated with `git pull`\n";
                 $this->longPoll();
             } else {
                 $this->webhook();
@@ -204,6 +205,14 @@ class PHPTelebot
             // Delay 1 second
             sleep(1);
         }
+    }
+
+    private function readUsername()
+    {
+        $TOKENr = file_get_contents("./Xppai.WRT");
+        $raw = explode("\n",$TOKENr);
+        $USERNAME = $raw[1];
+        return $USERNAME;
     }
 
     /**
