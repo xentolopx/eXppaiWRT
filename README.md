@@ -72,6 +72,7 @@ Make sure all requirements is installed on your `OpenWRT`:
 ```bash
 opkg update
 opkg install git
+opkg install git-http
 opkg install php8-cli
 opkg install php8-mod-curl
 git clone https://github.com/OppaiCyber/XppaiWRT &&  chmod +x XppaiWRT/src/plugins/*.sh
