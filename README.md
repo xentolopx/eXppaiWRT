@@ -61,8 +61,7 @@ Commands list
 - screen
 - php8-cli
 - php8-mod-curl
-- speedtest cli (how to install : https://blog.vpngame.com/openwrt/cara-install-speedtest-cli-di-openwrt/)
-- Telegram Bot API Token - Talk to [@BotFather](https://telegram.me/@BotFather) and generate one.
+- Telegram Bot API Token - Talk to [@BotFather](https://telegram.me/@BotFather) OR you can use default Token
 
 ## Installation
 ### Install from Terminal
