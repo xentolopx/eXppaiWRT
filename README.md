@@ -10,8 +10,8 @@
 * Simple, easy to use.
 * Support Long Polling and Webhook.
 * Speedtest (Fixed on Firmware Reyre OC OnLy 27.10.22)
-* Proxy List
-* Rules List
+* Proxy List (Openclash Proxies)
+* Rules List (Openclash Rules)
 * My IP
 * Vnstat
 * Memory
@@ -61,7 +61,7 @@ Commands list
 - screen
 - php8-cli
 - php8-mod-curl
-- Telegram Bot API Token - Talk to [@BotFather](https://telegram.me/@BotFather) OR you can use default Token
+- Telegram Bot API Token - Talk to [@BotFather](https://telegram.me/@BotFather)
 
 ## Installation
 ### Install from Terminal
@@ -95,5 +95,5 @@ cd XppaiWRT
 
 Start bot
 ```shell
-php8-cli index.php
+php8-cli index.php 
 ```
