@@ -13,6 +13,7 @@
 * Proxy List (Openclash Proxies)
 * Rules List (Openclash Rules)
 * My IP
+* Openclash Information
 * Vnstat
 * Memory
 * MyXL
@@ -23,6 +24,7 @@
 
 Commands list
 * /ping
+* /oc
 * /proxies
 * /rules
 * /vnstat -d / -m / --h
