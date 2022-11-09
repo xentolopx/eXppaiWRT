@@ -38,6 +38,7 @@ Commands list
 ```shell
 git reset --hard
 git pull
+chmod +x src/plugins/*.sh
 ```
  
 # 📷 Screenshots
