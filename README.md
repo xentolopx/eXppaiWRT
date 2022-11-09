@@ -33,6 +33,12 @@ Commands list
 * /sysinfo
 * /speedtest
 * /myxl 087666xxx
+
+## How To Update XppaiWRT
+```shell
+git reset --hard
+git pull
+```
  
 # 📷 Screenshots
 ##### Edit `Xppai.WRT` with your own Bot Token
