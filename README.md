@@ -7,32 +7,37 @@
 * [**Reyre Firmware OC OnLy 06.11.22**](https://www.youtube.com/watch?v=SBHcJJC8ln0) -> Working Perfectly
 ## Features
 
-* Simple, easy to use.
 * Support Long Polling and Webhook.
-* Speedtest (Fixed on Firmware Reyre OC OnLy 27.10.22)
 * Proxy List (Openclash Proxies)
 * Rules List (Openclash Rules)
-* My IP
 * Openclash Information
-* Vnstat
-* Memory
-* MyXL
+* Simple, easy to use.
 * Inline Command
+* Speedtest 
 * Sysinfo
+* Memory
+* Vnstat
+* My IP
+* Aria2
+* MyXL
  
 ## Commands
 
 Commands list
-* /ping
-* /oc
-* /proxies
-* /rules
-* /vnstat -d / -m / --h
-* /myip
-* /memory
-* /sysinfo
-* /speedtest
-* /myxl 087666xxx
+ * /aria2add      | Add task
+ * /aria2stats    | Aria2 status
+ * /aria2pause    | Pause all
+ * /aria2resume   | Resume all
+ * /oc        | OC Information
+ * /proxies   | Proxies status 
+ * /rules     | Rule list 
+ * /vnstat    | Bandwidth usage 
+ * /memory    | Memory status 
+ * /myip      | Get ip details 
+ * /myxl 087x | MyXL Info
+ * /speedtest | Speedtest 
+ * /ping      | Ping bot
+ * /sysinfo   | System Information
 
 ## How To Update XppaiWRT
 ```shell
