@@ -22,7 +22,27 @@ $bot->cmd('/ping','yes');
 
 // start cmd & cmd list
 $bot->cmd('/start',"Welcome to XppaiWRT\n/cmdlist to see all comand\nTelegram Support : @OppaiCyber");
-$bot->cmd('/cmdlist',"/aria2add [url] | Add download task\n/aria2stats | Aria2 status\n/aria2pause | Pause all aria2 task\n/aria2resume | Resume all aria2 task\n//oc | Openclash information\n/proxies | Proxies status \n/rules | Rule list \n/vnstat | Bandwidth usage \n/memory | Memory status \n/myip | Get ip details \n/myxl 087xxx | MyXL Package Remaining \n/speedtest | Speedtest \n/ping | Ping bot\n/sysinfo | System Information");
+$bot->cmd('/cmdlist', function () {
+    $options = ['parse_mode' => 'html','reply' => true];
+    return Bot::sendMessage("<code>
+📁Aria2 Command
+ ↳/aria2add      | Add task
+ ↳/aria2stats    | Aria2 status
+ ↳/aria2pause    | Pause all
+ ↳/aria2resume   | Resume all
+📁OpenClash Command
+ ↳/oc        | OC Information
+ ↳/proxies   | Proxies status 
+ ↳/rules     | Rule list 
+📁System Information
+ ↳/vnstat    | Bandwidth usage 
+ ↳/memory    | Memory status 
+ ↳/myip      | Get ip details 
+ ↳/myxl 087x | MyXL Info
+ ↳/speedtest | Speedtest 
+ ↳/ping      | Ping bot
+ ↳/sysinfo   | System Information</code>",$options);
+});
 
 // OpenWRT Command 
 $bot->cmd('/proxies', function () {
