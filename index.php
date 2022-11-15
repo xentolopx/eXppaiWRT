@@ -22,7 +22,7 @@ $bot->cmd('/ping','yes');
 
 // start cmd & cmd list
 $bot->cmd('/start',"Welcome to XppaiWRT\n/cmdlist to see all comand\nTelegram Support : @OppaiCyber");
-$bot->cmd('/cmdlist',"/oc | Openclash information\n/proxies | Proxies status \n/rules | Rule list \n/vnstat | Bandwidth usage \n/memory | Memory status \n/myip | Get ip details \n/myxl 087xxx | MyXL Package Remaining \n/speedtest | Speedtest \n/ping | Ping bot\n/sysinfo | System Information");
+$bot->cmd('/cmdlist',"/aria2add [url] | Add download task\n/aria2stats | Aria2 status\n/aria2pause | Pause all aria2 task\n/aria2resume | Resume all aria2 task\n//oc | Openclash information\n/proxies | Proxies status \n/rules | Rule list \n/vnstat | Bandwidth usage \n/memory | Memory status \n/myip | Get ip details \n/myxl 087xxx | MyXL Package Remaining \n/speedtest | Speedtest \n/ping | Ping bot\n/sysinfo | System Information");
 
 // OpenWRT Command 
 $bot->cmd('/proxies', function () {
@@ -72,8 +72,29 @@ $bot->cmd('/myxl', function ($number) {
     return Bot::sendMessage("<code>".MyXL($number)."</code>",$options);
 });
 
+//Aria2 cmd
+$bot->cmd('/aria2add', function ($url) {
+    $options = ['parse_mode' => 'html','reply' => true];
+    return Bot::sendMessage("<code>".shell_exec("src/plugins/add.sh $url")."</code>",$options);
+});
+
+$bot->cmd('/aria2stats', function () {
+    $options = ['parse_mode' => 'html','reply' => true];
+    return Bot::sendMessage("<code>".shell_exec("src/plugins/stats.sh")."</code>",$options);
+});
+
+$bot->cmd('/aria2pause', function () {
+    $options = ['parse_mode' => 'html','reply' => true];
+    return Bot::sendMessage("<code>".shell_exec("src/plugins/pause.sh")."</code>",$options);
+});
+
+$bot->cmd('/aria2resume', function () {
+    $options = ['parse_mode' => 'html','reply' => true];
+    return Bot::sendMessage("<code>".shell_exec("src/plugins/resume.sh")."</code>",$options);
+});
+//Aria2 cmd end
+
 //inline command
-// Inline
 $bot->on('inline', function ($cmd,$input) {
     
     if($cmd == 'proxies'){
