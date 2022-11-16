@@ -78,6 +78,11 @@ chmod +x src/plugins/*.sh
 - Telegram Bot API Token - Talk to [@BotFather](https://telegram.me/@BotFather)
 
 ## Installation
+
+### Follow Tutorial from Youtube (php7)
+[Install OpenWrt PHP Telegram Bot By XppaiWRT | PHP7 REYRE-STB
+](https://www.youtube.com/watch?v=JJPozNreVE0&lc=Ugy_OosDmlWRERUgvB94AaABAg.9iCzkvv1lxu9iV-s6tpDnO)
+
 ### Install from Terminal
 
 Make sure all requirements is installed on your `OpenWRT`:
@@ -110,4 +115,10 @@ cd XppaiWRT
 Start bot
 ```shell
 php8-cli index.php 
+```
+
+Auto Start Bot after reboot / internet off
+```
+add scheduled tasks
+*/5 * * * * cd XppaiWRT && php8-cli index.php
 ```
