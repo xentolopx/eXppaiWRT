@@ -23,7 +23,7 @@ function delayColor($input){
 }
 
 function MyXL($number){
-    $data = seeURL("http://beta-test.cloudaccess.host/cek.php?nomor=$number");
+    $data = seeURL("https://sidompul.cloudaccess.host/cek.php?nomor=$number");
     return $data;
 }
 
