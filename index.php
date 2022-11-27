@@ -34,11 +34,13 @@ $bot->cmd('/cmdlist', function () {
  ↳/oc        | OC Information
  ↳/proxies   | Proxies status 
  ↳/rules     | Rule list 
+📁MyXL Command 
+ ↳/myxl      | Bandwidth usage 
+ ↳/setxl 087 | Set default number
 📁System Information
  ↳/vnstat    | Bandwidth usage 
  ↳/memory    | Memory status 
  ↳/myip      | Get ip details 
- ↳/myxl 087x | MyXL Info
  ↳/speedtest | Speedtest 
  ↳/ping      | Ping bot
  ↳/sysinfo   | System Information</code>",$options);
@@ -86,11 +88,23 @@ $bot->cmd('/speedtest', function () {
     return Bot::sendMessage("<code>".Speedtest()."</code>",$options);
 });
 
+//Myxl cmd
+$bot->cmd('/setxl', function ($number) {
+    $options = ['parse_mode' => 'html','reply' => true];
+    if ($number == "") {
+        Bot::sendMessage("<code>Masukan nomor yang mau di set sebagai default /setxl 087x</code>",$options);
+    }else{
+        shell_exec("echo '$number' > xl");
+        Bot::sendMessage("<code>Nomer $number disetting sebagai default\nSilahkan gunakan cmd /myxl tanpa memasukkan nomor</code>",$options);
+    }
+});
+
 $bot->cmd('/myxl', function ($number) {
     $options = ['parse_mode' => 'html','reply' => true];
     Bot::sendMessage("<code>MyXL on Progress</code>", $options);
     return Bot::sendMessage("<code>".MyXL($number)."</code>",$options);
 });
+//Myxl cmd end
 
 //Aria2 cmd
 $bot->cmd('/aria2add', function ($url) {
