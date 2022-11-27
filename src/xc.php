@@ -22,9 +22,27 @@ function delayColor($input){
     }
 }
 
+function readXL(){
+
+        $rawConfig = file_get_contents("./xl");
+        $raw = explode("\n",$rawConfig);
+        $number = $raw[0];
+        return $number;
+    
+}
+
 function MyXL($number){
-    $data = seeURL("https://sidompul.cloudaccess.host/cek.php?nomor=$number");
-    return $data;
+    if ($number == "") {
+        if (readXL() == null) {
+            return "Nomor kosong, Setting nomor dengan /setxl 087x";
+        }else{
+            $data = seeURL("https://sidompul.cloudaccess.host/cek.php?nomor=".readXL());
+            return $data;
+        } 
+    }else{
+        $data = seeURL("https://sidompul.cloudaccess.host/cek.php?nomor=$number");
+        return $data;
+    }
 }
 
 function Proxies(){
