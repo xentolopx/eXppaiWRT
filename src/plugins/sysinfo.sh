@@ -177,6 +177,11 @@ print_line() { # <String to Print>, [[<String to Print>] ...]
 	fi
 }
 
+suhu_xc() {
+	local suhumhz=$(/usr/bin/cpustat 2>/dev/null)
+	printf "Clock Speed / Suhu : $suhumhz"
+}
+
 footer_xppaiwrt() {
 	printf "Mod: XppaiWRT"
 }
@@ -201,7 +206,8 @@ print_times() {
 }
 
 print_loadavg() {
-	print_line "System load:"\
+	print_line "
+System load:"\
 				"$ValueColor"$(cat /proc/loadavg | cut -d " " -f 1 2>/dev/null)"$NormalColor,"\
 				"$ValueColor"$(cat /proc/loadavg | cut -d " " -f 2 2>/dev/null)"$NormalColor,"\
 				"$ValueColor"$(cat /proc/loadavg | cut -d " " -f 3 2>/dev/null)"$NormalColor"
@@ -451,6 +457,7 @@ initialize $@
 
 print_machine
 print_times
+suhu_xc
 print_loadavg
 print_disk
 print_memory
