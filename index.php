@@ -3,16 +3,10 @@ require_once __DIR__.'/src/PHPTelebot.php';
 require_once __DIR__.'/src/xc.php';
 
 // Read token & username
-function readToken($input){
-    $TOKENr = file_get_contents("Xppai.WRT");
-    $raw = explode("\n",$TOKENr);
-    $TOKEN = $raw[0];
-    $USERNAME = $raw[1];
-    if ($input == "token") {
-        return $TOKEN;
-    }elseif($input == "username"){
-        return $USERNAME;
-    }
+function readToken($input) {
+    $data = file_get_contents("Xppai.WRT");
+    $raw = explode("\n", $data);
+    return ($input == "token") ? $raw[0] : $raw[1];
 }
 
 $bot = new PHPTelebot(readToken("token"), readToken("username"));
@@ -105,6 +99,13 @@ $bot->cmd('/myxl', function ($number) {
     return Bot::sendMessage("<code>".MyXL($number)."</code>",$options);
 });
 //Myxl cmd end
+
+//adb cmd
+$bot->cmd('/adb', function () {
+    $options = ['parse_mode' => 'html','reply' => true];
+    Bot::sendMessage("<code>ADB on Progress</code>", $options);
+    return Bot::sendMessage("<code>".ADB()."</code>",$options);
+});
 
 //Aria2 cmd
 $bot->cmd('/aria2add', function ($url) {
