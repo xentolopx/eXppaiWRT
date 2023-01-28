@@ -67,7 +67,14 @@ $bot->cmd('/vnstat', function ($input) {
 
 $bot->cmd('/memory', function () {
     $options = ['parse_mode' => 'html','reply' => true];
-    return Bot::sendMessage("<code>".shell_exec("cat /proc/meminfo | sed -n '1,5p'")."</code>",$options);
+    $free = intval(trim(shell_exec("grep 'MemFree' /proc/meminfo | awk '{print $2}'")))/1024;
+    $total = intval(trim(shell_exec("grep 'MemTotal' /proc/meminfo | awk '{print $2}'")))/1024;
+    $used = $total - $free;
+    $percent = round(($used / $total) * 100);
+    $bar = str_repeat("■", round($percent/5));
+    $bar .= str_repeat("□", 20 - round($percent/5));
+    $output = "<code>Memory usage: \nUsed: " .$bar."\nAvailable: ". $free ."MB \nTotal: ". $total ."MB \nUsage: ". $percent ."%</code>";
+    return Bot::sendMessage($output,$options);
 });
 
 $bot->cmd('/sysinfo', function () {
