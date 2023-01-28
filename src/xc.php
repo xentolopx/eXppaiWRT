@@ -31,6 +31,58 @@ function readXL(){
     
 }
 
+function ADB(){
+
+        // Execute the ADB command for battery status and store the output in a variable
+$battery_status = shell_exec('adb shell dumpsys battery');
+
+// Execute the ADB command for signal strength and store the output in a variable
+$signal_status = shell_exec('adb shell dumpsys telephony.registry');
+
+// Execute the ADB command for device model and store the output in a variable
+$device_model = shell_exec('adb shell getprop ro.product.model');
+
+// android ver
+$android_ver = shell_exec('adb shell getprop ro.build.version.release');
+
+// Use regular expressions to extract the battery level
+preg_match('/level: (\d+)/', $battery_status, $matches);
+$battery_level = $matches[1];
+
+// Use regular expressions to extract the battery status numeric value
+preg_match('/status: (\d+)/', $battery_status, $matches);
+$battery_status_numeric = $matches[1];
+
+// Use regular expressions to extract the signal level
+preg_match('/mSignalStrength=(\d+)/', $signal_status, $matches);
+$signal_level = $matches[1];
+
+// Trim the device model string to remove whitespaces
+$device_model = trim($device_model);
+
+// Check the numeric value of the battery status
+if($battery_status_numeric == 2){
+    $battery_status = "Charging";
+}elseif($battery_status_numeric == 3){
+    $battery_status = "Discharging";
+}elseif($battery_status_numeric == 5){
+    $battery_status = "Full";
+}else{
+    $battery_status = "Unknown";
+}
+
+// Print the battery level, status, signal level and device model
+$result = "ADB Information
+Battery Level   : $battery_level %
+Battery Status  : $battery_status
+Signal Level    : $signal_level
+Device Model    : $device_model
+Android Version : $android_ver";
+
+return $result;
+
+}
+
 function MyXL($number){
     if ($number == "") {
         if (readXL() == null) {
