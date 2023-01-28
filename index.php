@@ -56,7 +56,13 @@ $bot->cmd('/proxies', function () {
 
 $bot->cmd('/vnstat', function ($input) {
     $options = ['parse_mode' => 'html','reply' => true];
-    return Bot::sendMessage("<code>".shell_exec("vnstat $input")."</code>",$options);
+    $input = escapeshellarg($input);
+    $output = shell_exec("vnstat $input 2>&1");
+    if ($output === null) {
+        return Bot::sendMessage("<code> Invalid input or vnstat not found</code>",$options);
+    } else {
+        return Bot::sendMessage("<code>".$output."</code>",$options);
+    }
 });
 
 $bot->cmd('/memory', function () {
