@@ -178,8 +178,15 @@ print_line() { # <String to Print>, [[<String to Print>] ...]
 }
 
 suhu_xc() {
-	local suhumhz=$(/usr/bin/cpustat 2>/dev/null)
-	printf "Clock Speed / Suhu : $suhumhz"
+    local suhumhz=$(/usr/bin/cpustat 2>/dev/null)
+    local temp=$(echo $suhumhz | awk '{print $4}')
+    if (( $(echo "$temp < 40" | bc -l) )); then
+        printf "Speed / Temp $suhumhz (❄️ Temperature: Cool)"
+    elif (( $(echo "$temp < 55" | bc -l) )); then
+        printf "Speed / Temp $suhumhz (🌡️ Temperature: Normal)"
+    else
+        printf "Speed / Temp $suhumhz (🔥 Temperature: Hot)"
+    fi
 }
 
 footer_xppaiwrt() {
