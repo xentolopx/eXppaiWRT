@@ -12,7 +12,15 @@ function readToken($input) {
 $bot = new PHPTelebot(readToken("token"), readToken("username"));
 
 // Ping Command
-$bot->cmd('/ping','yes');
+$bot->cmd('/ping', function () {
+    $options = ['parse_mode' => 'html','reply' => true];
+    $start_time = microtime(true);
+    Bot::sendMessage("<code>pong!</code>",$options);
+    $end_time = microtime(true);
+    $diff = round(($end_time - $start_time) * 1000);
+    return Bot::sendMessage("<code>Time taken: ".$diff."ms</code>",$options);
+});
+
 
 // start cmd & cmd list
 $bot->cmd('/start',"Welcome to XppaiWRT\n/cmdlist to see all comand\nTelegram Support : @OppaiCyber");
