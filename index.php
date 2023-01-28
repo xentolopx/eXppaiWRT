@@ -40,6 +40,7 @@ $bot->cmd('/cmdlist', function () {
  ↳/myxl      | Bandwidth usage 
  ↳/setxl 087 | Set default number
 📁System Information
+ ↳/reboot    | Reboot STB
  ↳/vnstat    | Bandwidth usage 
  ↳/memory    | Memory status 
  ↳/myip      | Get ip details 
