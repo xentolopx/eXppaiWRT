@@ -91,6 +91,7 @@ Make sure all requirements is installed on your `OpenWRT`:
 
 ```bash
 opkg update
+opkg install bc
 opkg install git
 opkg install git-http
 opkg install php8-cli
