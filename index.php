@@ -78,11 +78,11 @@ $bot->cmd('/memory', function () {
     return Bot::sendMessage($output,$options);
 });
 
-$bot->cmd('/reboot', function () {
-    $options = ['parse_mode' => 'html','reply' => true];
-    Bot::sendMessage("<code>eXppaiWRT Rebooting STB...</code>",$options);
-    return Bot::sendMessage("<code>".shell_exec("reboot")."</code>",$options);
-});
+// $bot->cmd('/reboot', function () {
+//     $options = ['parse_mode' => 'html','reply' => true];
+//     Bot::sendMessage("<code>eXppaiWRT Rebooting STB...</code>",$options);
+//     return Bot::sendMessage("<code>".shell_exec("reboot")."</code>",$options);
+// });
 
 $bot->cmd('/sysinfo', function () {
     $options = ['parse_mode' => 'html','reply' => true];
