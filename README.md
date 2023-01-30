@@ -90,13 +90,10 @@ chmod +x src/plugins/*.sh
 Make sure all requirements is installed on your `OpenWRT`:
 
 ```bash
-opkg update
-opkg install bc
-opkg install git
-opkg install git-http
-opkg install php8-cli
-opkg install php8-mod-curl
-git clone https://github.com/xentolopx/eXppaiWRT &&  chmod +x eXppaiWRT/src/plugins/*.sh
+opkg update && \
+opkg install bc git git-http php8-cli php8-mod-curl && \
+git clone https://github.com/xentolopx/eXppaiWRT && \
+chmod +x eXppaiWRT/src/plugins/*.sh
 ```
 
 ## Usage
