@@ -48,6 +48,7 @@ $bot->cmd("/cmdlist", function () {
  ↳/setxl 087 | Set default number
 📁System Information
  ↳/vnstat    | Bandwidth usage 
+ ↳/vnstati   | Better Bandwidth usage 
  ↳/memory    | Memory status 
  ↳/myip      | Get ip details 
  ↳/speedtest | Speedtest 
@@ -61,6 +62,29 @@ $bot->cmd("/cmdlist", function () {
 $bot->cmd("/proxies", function () {
     $options = ["parse_mode" => "html", "reply" => true];
     return Bot::sendMessage("<code>" . Proxies() . "</code>", $options);
+});
+
+// cmd vnstati
+$bot->cmd("/vnstati", function () {
+    $options = ["parse_mode" => "html", "reply" => true];
+    $image_files = [
+        'summary' => 'vnstati -s -i br-lan -o summary.png',
+        'hourly' => 'vnstati -h -i br-lan -o hourly.png',
+        'daily' => 'vnstati -d -i br-lan -o daily.png',
+        'monthly' => 'vnstati -m -i br-lan -o monthly.png',
+        'yearly' => 'vnstati -y -i br-lan -o yearly.png',
+        'top' => 'vnstati --top 5 -i br-lan -o top.png',
+    ];
+    
+    foreach ($image_files as $image_file) {
+        shell_exec($image_file);
+    }
+    
+    foreach ($image_files as $file_name => $command) {
+        Bot::sendPhoto($file_name . '.png');
+    }
+    
+    shell_exec("rm *.png");
 });
 
 $bot->cmd("/vnstat", function ($input) {
