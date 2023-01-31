@@ -43,6 +43,7 @@ $bot->cmd("/cmdlist", function () {
  ↳/oc        | OC Information
  ↳/proxies   | Proxies status 
  ↳/rules     | Rule list 
+ ↳upload yaml| Openclash yaml config upload
 📁MyXL Command 
  ↳/myxl      | Bandwidth usage 
  ↳/setxl 087 | Set default number
@@ -57,6 +58,18 @@ $bot->cmd("/cmdlist", function () {
         $options
     );
 });
+
+// yaml config upload
+$bot->on('document', function() {
+  // download file
+    $token = readToken("token");
+    $message = Bot::message();
+    $file_id = $message['document']['file_id'];
+    $raw = json_decode(Bot::getFile($file_id),true);
+    $file_path = $raw['result']['file_path'];
+    $wget = shell_exec("wget -P /etc/openclash/config https://api.telegram.org/file/bot$token/$file_path");
+    Bot::sendMessage("file harusnya dah terdownload stb, dan terupload di folder openclash config dengan nama $file_path");
+ });
 
 // OpenWRT Command
 $bot->cmd("/proxies", function () {
