@@ -4,7 +4,18 @@ echo "🔄 Updating the package list..."
 opkg update
 
 echo "📦 Installing dependencies..."
-opkg install git git-http php8-cli php8-mod-curl bc
+
+echo -n "💬 Enter PHP Version (7 or 8): "
+read -r php_version
+
+if [ "$php_version" == "7" ]; then
+  opkg install git git-http php7-cli php7-mod-curl bc
+elif [ "$php_version" == "8" ]; then
+  opkg install git git-http php8-cli php8-mod-curl bc
+else
+  echo "❌ Invalid PHP version.\n"
+  exit 1
+fi
 
 if [ $? -eq 0 ]; then
   echo "✔️ Dependencies were installed successfully."
@@ -39,6 +50,6 @@ echo "$bot_username" >> "$install_dir"/Xppai.WRT
 echo "✔️ Xppai.WRT was edited successfully."
 
 echo "🚀 Starting the bot...\n"
-cd "$install_dir" && php8-cli index.php
+cd "$install_dir" && php$php_version-cli index.php
 
 echo "✔️ eXppaiWRT Bot started successfully."
